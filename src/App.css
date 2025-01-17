@@ -446,6 +446,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   height: 0;
   transition: 0.4s ease-in-out;
 }
+/* Make sure the items are stacked vertically on mobile */
+@media (max-width: 464px) {
+  .react-multi-carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Add some space between items */
+  }
+
+  .skill-name {
+    display: block; /* Ensure skill name is visible on mobile */
+    text-align: center;
+  }
+}
+
+/* Optionally, you can style the carousel container to adjust its height or margin */
+@media (max-width: 464px) {
+  .react-multi-carousel-track {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
 .proj-imgbx:hover::before {
   height: 100%;
 }
