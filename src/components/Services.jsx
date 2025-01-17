@@ -32,7 +32,7 @@ const services = [
 
 const Service = () => {
   return (
-    <div className="bg-transparent" id="service">
+    <div className="bg-transparent" id="service" style={{padding:'15px 0'}}>
       <Container>
         <h2 className="text-center mb-5" style={{ fontFamily: 'CentraNo2, sans-serif', fontWeight: '400', fontSize: '2.5rem' }}>
           My Services
