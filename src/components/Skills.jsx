@@ -5,40 +5,71 @@ import node from '../assets/img/node.svg';
 import html from '../assets/img/html.svg';
 import javascript from '../assets/img/js.svg';
 import reactNative from '../assets/img/reactN.svg';
+import mysql from '../assets/img/mysql.svg';
+import postgresql from '../assets/img/postgre.svg'; 
+import ts from '../assets/img/typescript-official-svgrepo-com.svg'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 import colorSharp from "../assets/img/color-sharp.png";
-
+import chakraUIIcon from "../assets/img/chakraUi.svg";
+import materialUIIcon from "../assets/img/materialUi.svg"
+import tailwindIcon from '../assets/img/tailwind.svg';
+import bootstrapIcon from '../assets/img/bootstrap.svg';
+import cssIcon from '../assets/img/css.svg';
+import scssIcon from '../assets/img/scss.svg';
 export const Skills = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check screen size on component mount and resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 464);
     };
 
-    handleResize(); // Set initial state
-    window.addEventListener('resize', handleResize); // Listen for resize events
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Cleanup listener
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const centerMode =()=>{
+    if(skills.length > 3){
+      return true
+    } else if ( skills.length <= 3){
+      return false
+    }
+  }
   const skills = [
-    { name: "React", icon: reactSvg, percentage: 85, description: "React description" },
-    { name: "Nest.js", icon: NesjSvg, percentage: 70, description: "Nest.js description" },
-    { name: "Node.js", icon: node, percentage: 90, description: "Node.js description" },
-    { name: "HTML", icon: html, percentage: 95, description: "HTML description" },
-    { name: "JavaScript", icon: javascript, percentage: 90, description: "JavaScript description" },
-    { name: "React Native", icon: reactNative, percentage: 75, description: "React Native description" },
+    { name: "React", icon: reactSvg, type: "framework" },
+    { name: "Nest.js", icon: NesjSvg, type: "framework" },
+    { name: "Node.js", icon: node, type: "framework" },
+    { name: "React Native", icon: reactNative, type: "framework" },
+    { name: "HTML", icon: html, type: "language" },
+    { name: "JavaScript", icon: javascript, type: "language" },
+    { name: "MySQL", icon: mysql, type: "database" },
+    { name: "PostgreSQL", icon: postgresql, type: "database" },
+    {name: "TypeScript", type:"language" ,icon : ts},
+    { name: "CSS", type: "Styling Language", icon: cssIcon },
+    { name: "SCSS", type: "Styling Language", icon: scssIcon },
+    { name: "Tailwind CSS", type: "CSS Framework", icon: tailwindIcon },
+    { name: "Bootstrap", type: "CSS Framework", icon: bootstrapIcon },
+    { name: "Material UI", type: "React Component Library", icon: materialUIIcon },
+    { name: "Chakra UI", type: "React Component Library", icon: chakraUIIcon }
+    
   ];
+
+  const groupedSkills = {
+    framework: skills.filter(skill => skill.type === "framework"),
+    language: skills.filter(skill => skill.type === "language"),
+    database: skills.filter(skill => skill.type === "database"),
+    Library: skills.filter(skill => skill.type === 'React Component Library'),
+    Styling: skills.filter(skill => skill.type === 'Styling Language'),
+    cssFramework : skills.filter(skill => skill.type === 'CSS Framework')
+  };
 
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 3,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -50,17 +81,18 @@ export const Skills = () => {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1, // Show 1 item per row on mobile
+      items: 1,
     },
   };
 
-  const mobileStyle = {
-    display: 'flex',
-    flexDirection: 'column', // Stack items vertically
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '20px', // Add space between items
+  const groupContainerStyle = {
+    marginBottom: '40px',
+    padding: '20px',
+    backgroundColor: 'transparent',
+    borderRadius: '10px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
   };
+
 
   const itemStyle = {
     width: 120,
@@ -77,96 +109,76 @@ export const Skills = () => {
     height: '50%',
   };
 
+  const mobileItemStyle = {
+    ...itemStyle,
+    marginBottom: '10px',
+  };
+  
+
+  const renderCarousel = (skills, title) => {
+    const center = skills.length < 3; 
+    
+    return (
+      <div key={title} style={groupContainerStyle}>
+        <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>{title}</h3>
+        {!isMobile ? (
+          <Carousel 
+            responsive={responsive} 
+            infinite={true} 
+            className="owl-carousel owl-theme skill-slider"
+            containerClass={`carousel-container ${center ? 'carousel-centered' : ''}`}  
+            itemClass="carousel-item-padding-40-px"
+          >
+            {skills.map((skill, index) => (
+              <div className="item" key={index}>
+                <div style={itemStyle}>
+                  <img src={skill.icon} alt={skill.name} style={iconStyle} />
+                </div>
+                <h5 style={{ textAlign: 'center', marginTop: 10 }}>{skill.name}</h5>
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+            {skills.map((skill, index) => (
+              <div key={index} style={{ textAlign: 'center', marginBottom: '20px', width: '40%' }}>
+                <div style={mobileItemStyle}>
+                  <img src={skill.icon} alt={skill.name} style={iconStyle} />
+                </div>
+                <h5 style={{ marginTop: 10 }}>{skill.name}</h5>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+  
+
   return (
     <section className="skill" id="skills">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="skill-bx wow zoomIn">
-              <h2>Skills</h2>
-              {/* Always show the intro text on desktop */}
+              <h2>Technologies I Work With</h2>
               {!isMobile && (
                 <p>
                   I am a passionate full-stack developer with a focus on building modern and responsive web applications.
                   With a strong foundation in both frontend and backend technologies, I strive to create seamless and efficient user experiences.
                 </p>
               )}
-
-              {/* Carousel for larger screens */}
-              {!isMobile ? (
-                <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                  {skills.map((skill, index) => (
-                    <div className="item" key={index}>
-                      <div style={itemStyle}>
-                        <svg width="0" height="0">
-                          <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" style={{ stopColor: "#D5006D", stopOpacity: 1 }} />
-                              <stop offset="100%" style={{ stopColor: "#402539", stopOpacity: 1 }} />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-
-                        <CircularProgressbar
-                          value={skill.percentage}
-                          styles={buildStyles({
-                            pathColor: "url(#gradient)",
-                            trailColor: "transparent",
-                            textColor: "#000",
-                            strokeLinecap: "round",
-                          })}
-                        />
-                        <img
-                          src={skill.icon}
-                          alt={skill.name}
-                          style={iconStyle}
-                        />
-                      </div>
-                      <h5 style={{ textAlign: 'center', marginTop: 10 }}>{skill.name}</h5>
-                     
-                    </div>
-                  ))}
-                </Carousel>
-              ) : (
-                // Mobile view: 3 items per column, no descriptions
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                  {skills.map((skill, index) => (
-                    <div key={index} style={mobileStyle}>
-                      <div style={itemStyle}>
-                        <svg width="0" height="0">
-                          <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                              <stop offset="0%" style={{ stopColor: "#D5006D", stopOpacity: 1 }} />
-                              <stop offset="100%" style={{ stopColor: "#402539", stopOpacity: 1 }} />
-                            </linearGradient>
-                          </defs>
-                        </svg>
-
-                        <CircularProgressbar
-                          value={skill.percentage}
-                          styles={buildStyles({
-                            pathColor: "url(#gradient)",
-                            trailColor: "transparent",
-                            textColor: "#000",
-                            strokeLinecap: "round",
-                          })}
-                        />
-                        <img
-                          src={skill.icon}
-                          alt={skill.name}
-                          style={iconStyle}
-                        />
-                      </div>
-                      <h5 style={{ textAlign: 'center', marginTop: 10 }}>{skill.name}</h5>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {renderCarousel(groupedSkills.framework, "Frameworks")}
+              {renderCarousel(groupedSkills.language, "Programming Languages")}
+              {renderCarousel(groupedSkills.database, "Databases")}
+              {renderCarousel(groupedSkills.Styling, "Styling languages")}
+              {renderCarousel(groupedSkills.cssFramework, "CSS frameworks")}
+              {renderCarousel(groupedSkills.Library, "React Component Libraries")}
             </div>
           </div>
         </div>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img className="background-image-left" src={colorSharp} alt="Background decoration" />
     </section>
   );
 };

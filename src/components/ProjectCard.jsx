@@ -10,7 +10,9 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
           <h4>{title}</h4>
           <span>{description}</span>
           <br />
-          <span style={{gap:'15px'}}>
+          <br />
+          
+          <span style={{gap:'15px', marginTop:'15px', paddingTop:'15px'}}>
             {url ? (
               <a
                 href={url}
@@ -18,14 +20,16 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
                 rel="noopener noreferrer"
                 style={{ color: "white" }}
               >
-                <FaEye />
+                <FaEye  size ="1.5em"/>
                 
               </a>
             ) : (
-              <FaEyeSlash style={{ color: "white" }} />
+              <FaEyeSlash style={{ color: "white" }} size ="1.5em" />
             )}
             <span>&nbsp;</span>
-            <FaGithub />
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+            <FaGithub  size ="1.5em" />
           </span>
         </div>
       </div>
