@@ -90,7 +90,8 @@ export const Skills = () => {
     padding: '20px',
     backgroundColor: 'transparent',
     borderRadius: '10px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    marginBottom: isMobile ? '0px' : '40px'
   };
 
 
@@ -111,7 +112,8 @@ export const Skills = () => {
 
   const mobileItemStyle = {
     ...itemStyle,
-    marginBottom: '10px',
+    marginBottom : '-15px',
+
   };
   
 
@@ -141,11 +143,13 @@ export const Skills = () => {
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
             {skills.map((skill, index) => (
-              <div key={index} style={{ textAlign: 'center', marginBottom: '20px', width: '40%' }}>
+              <div key={index} style={{ textAlign: 'center', width: '40%' , display: 'flex', alignItems: 'center', justifyContent : 'center', flexDirection:'column'}}>
                 <div style={mobileItemStyle}>
                   <img src={skill.icon} alt={skill.name} style={iconStyle} />
                 </div>
+                <div style={mobileItemStyle}>
                 <h5 style={{ marginTop: 10 }}>{skill.name}</h5>
+                </div>
               </div>
             ))}
           </div>

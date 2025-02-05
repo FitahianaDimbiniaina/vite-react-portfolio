@@ -31,7 +31,36 @@ export const NavBar = () => {
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
   }
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+  const handleRedirect = (event, mobileUrl, fallbackUrl) => {
+    if (isMobile) {
+      event.preventDefault();
+      let clicked = Date.now();
+      let openedApp = false;
+  
+      const visibilityChangeHandler = () => {
+        if (document.hidden) {
+          openedApp = true;
+        }
+      };
+  
+      document.addEventListener("visibilitychange", visibilityChangeHandler);
+  
+      window.location.href = mobileUrl;
+  
+      setTimeout(() => {
+        document.removeEventListener("visibilitychange", visibilityChangeHandler);
+  
+        if (!openedApp && Date.now() - clicked < 2000) {
+          window.location.href = fallbackUrl;
+        }
+      }, 2000);
+    }
+  };
+  
+  
+  
   return (
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
@@ -49,11 +78,30 @@ export const NavBar = () => {
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
             </Nav>
             <span className="navbar-text">
-              <div className="social-icon">
-                <a href="https://www.linkedin.com/in/fitahiana-razafimahatratra-14940b335"><img src={navIcon1} alt="" /></a>
-                <a href="https://www.facebook.com/fitahiana.razafi/"><img src={navIcon2} alt="" /></a>
-                <a href="https://github.com/FitahianaDimbiniaina"><img src={navIcon3} alt="" /></a>
+            <div className="social-icon">
+                <a 
+                  href="https://www.linkedin.com/in/fitahiana-razafimahatratra-14940b335"
+                  onClick={(e) => handleRedirect(e, "linkedin://profile/in/fitahiana-razafimahatratra-14940b335", "https://www.linkedin.com/in/fitahiana-razafimahatratra-14940b335")}
+                >
+                  <img src={navIcon1} alt="LinkedIn" />
+                </a>
+
+                <a 
+                  href="https://www.facebook.com/fitahiana.razafi"
+                  onClick={(e) => handleRedirect(e, "fb://profile/fitahiana.razafi", "https://www.facebook.com/fitahiana.razafi")}
+                >
+                  <img src={navIcon2} alt="Facebook" />
+                </a>
+
+                <a 
+                  href="https://github.com/FitahianaDimbiniaina"
+                  onClick={(e) => handleRedirect(e, "github://github.com/FitahianaDimbiniaina", "https://github.com/FitahianaDimbiniaina")}
+                >
+                  <img src={navIcon3} alt="GitHub" />
+                </a>
               </div>
+
+
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>
               </HashLink>
