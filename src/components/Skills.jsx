@@ -174,10 +174,8 @@ export const Skills = () => {
               )}
               {renderCarousel(groupedSkills.framework, "Frameworks")}
               {renderCarousel(groupedSkills.language, "Programming Languages")}
-              {renderCarousel(groupedSkills.database, "Databases")}
               {renderCarousel(groupedSkills.Styling, "Styling languages")}
               {renderCarousel(groupedSkills.cssFramework, "CSS frameworks")}
-              {renderCarousel(groupedSkills.Library, "React Component Libraries")}
             </div>
           </div>
         </div>
