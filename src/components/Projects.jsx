@@ -23,7 +23,7 @@ export const Projects = () => {
       url: ""
     },
     {
-      title: "Dimbiniaina Fitahiana",
+      title: "Fitahiana",
       description: "Another portfolio of mine built with React.js",
       imgUrl: projImg3,
       url: "https://fitahiana-portfolio.netlify.app"

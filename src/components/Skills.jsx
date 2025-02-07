@@ -22,8 +22,9 @@ export const Skills = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 464);
+      setIsMobile(window.innerWidth <= 768);
     };
+    
 
     handleResize(); 
     window.addEventListener('resize', handleResize);
@@ -141,7 +142,7 @@ export const Skills = () => {
             ))}
           </Carousel>
         ) : (
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap',justifyContent: 'space-around' }}>
             {skills.map((skill, index) => (
               <div key={index} style={{ textAlign: 'center', width: '40%' , display: 'flex', alignItems: 'center', justifyContent : 'center', flexDirection:'column'}}>
                 <div style={mobileItemStyle}>
@@ -174,8 +175,8 @@ export const Skills = () => {
               )}
               {renderCarousel(groupedSkills.framework, "Frameworks")}
               {renderCarousel(groupedSkills.language, "Programming Languages")}
+              {renderCarousel(groupedSkills.database, "Databases")}
               {renderCarousel(groupedSkills.Styling, "Styling languages")}
-              {renderCarousel(groupedSkills.cssFramework, "CSS frameworks")}
             </div>
           </div>
         </div>
