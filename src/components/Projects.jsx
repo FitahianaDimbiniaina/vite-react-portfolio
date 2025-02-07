@@ -43,7 +43,7 @@ export const Projects = () => {
               key={index}
               initial={{ opacity: 0, x: isEven ? -100 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the element is in view
+              viewport={{ once: false, amount: 0.3 }} 
               transition={{ duration: 0.8, ease: "easeOut" }}
               style={{
                 display: 'flex',
