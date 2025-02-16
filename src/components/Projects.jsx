@@ -5,6 +5,7 @@ import projImg1 from "../assets/img/PaperTrail.png";
 import projImg2 from "../assets/img/bt.png";
 import projImg3 from "../assets/img/portfolio.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import fakestore from "../assets/img/fakestore.png"
 
 export const Projects = () => {
   const projects = [
@@ -21,6 +22,12 @@ export const Projects = () => {
         "PaperTrail is an intuitive letter management app built with React, Node.js, and MySQL, enabling users to organize, store, and quickly retrieve letters for efficient correspondence management.",
       imgUrl: projImg1,
       url: ""
+    },
+    {
+      title: "fakestore",
+      description:"An e-commerce app with a minimalistic user friendly UI following ios design asthetics",
+      imgUrl: fakestore,
+      url: "https://myfakestore-ecommerce.netlify.app"
     },
     {
       title: "Fitahiana",

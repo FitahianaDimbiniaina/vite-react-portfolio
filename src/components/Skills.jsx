@@ -17,6 +17,8 @@ import tailwindIcon from '../assets/img/tailwind.svg';
 import bootstrapIcon from '../assets/img/bootstrap.svg';
 import cssIcon from '../assets/img/css.svg';
 import scssIcon from '../assets/img/scss.svg';
+import next from '../assets/img/nextjs.svg'
+
 export const Skills = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -32,13 +34,7 @@ export const Skills = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const centerMode =()=>{
-    if(skills.length > 3){
-      return true
-    } else if ( skills.length <= 3){
-      return false
-    }
-  }
+
   const skills = [
     { name: "React", icon: reactSvg, type: "framework" },
     { name: "Nest.js", icon: NesjSvg, type: "framework" },
@@ -54,7 +50,8 @@ export const Skills = () => {
     { name: "Tailwind CSS", type: "CSS Framework", icon: tailwindIcon },
     { name: "Bootstrap", type: "CSS Framework", icon: bootstrapIcon },
     { name: "Material UI", type: "React Component Library", icon: materialUIIcon },
-    { name: "Chakra UI", type: "React Component Library", icon: chakraUIIcon }
+    { name: "Chakra UI", type: "React Component Library", icon: chakraUIIcon },
+    {name: "Next JS", type: "framework", icon: next}
     
   ];
 
