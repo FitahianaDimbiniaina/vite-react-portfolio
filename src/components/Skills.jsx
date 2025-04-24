@@ -175,10 +175,9 @@ const groupedSkills = {
             <div className="skill-bx wow zoomIn">
               <h2>Technologies I Work With</h2>
               {!isMobile && (
-                <p>
-                  I am a passionate full-stack developer with a focus on building modern and responsive web applications.
-                  With a strong foundation in both frontend and backend technologies, I strive to create seamless and efficient user experiences.
-                </p>
+               <p>
+               As a full-stack developer, I’m passionate about building elegant and efficient solutions. With a foundation in both frontend and backend technologies—and now AI-powered systems—I create seamless digital experiences from concept to deployment.
+             </p>
               )}
               {renderCarousel(groupedSkills.framework, "Frameworks")}
               {renderCarousel(groupedSkills.language, "Programming Languages")}

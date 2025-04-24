@@ -56,10 +56,10 @@ export const Banner = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Fitahiana`} <br/><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer"]'><span className="wrap">{text}</span></span></h1>
-                  
-                  <p>I specialize in developing modern, responsive web and mobile applications, focused on delivering seamless, user-centric experiences across platforms.</p>
-                  
+                <h1>{`Hi! I'm Fitahiana`} <br/><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer"]'><span className="wrap">{text}</span></span></h1>     
+                <p>
+                  I specialize in crafting responsive, cross-platform web and mobile applications with a strong focus on modern design and smooth user experiences. Recently, I've expanded my expertise to include artificial intelligence, leveraging tools like PyTorch and TensorFlow to bring intelligent functionality into my projects.
+                </p>    
                   <button onClick={() => console.log('connect')}><a href='#connect'>Let’s Connect <ArrowRightCircle size={25} /></a></button>
               </div>}
             </TrackVisibility>
