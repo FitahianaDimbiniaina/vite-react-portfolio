@@ -28,6 +28,11 @@ const services = [
     title: "Mobile Development",
     description: "Developing mobile apps for your business.",
   },
+  {
+    id: 6,
+    title: "AI & Machine Learning Solutions",
+    description: "Designing and integrating intelligent systems powered by machine learning, deep learning, and data-driven insights.",
+  }
 ];
 
 const Service = () => {

@@ -17,7 +17,8 @@ import tailwindIcon from '../assets/img/tailwind.svg';
 import bootstrapIcon from '../assets/img/bootstrap.svg';
 import cssIcon from '../assets/img/css.svg';
 import scssIcon from '../assets/img/scss.svg';
-import next from '../assets/img/nextjs.svg'
+import next from '../assets/img/nextjs.svg';
+import images from '../assets/img/data_science';
 
 export const Skills = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -40,6 +41,7 @@ export const Skills = () => {
     { name: "Nest.js", icon: NesjSvg, type: "framework" },
     { name: "Node.js", icon: node, type: "framework" },
     { name: "React Native", icon: reactNative, type: "framework" },
+    { name: "Python", type: "language", icon: images.pythonImage },
     { name: "HTML", icon: html, type: "language" },
     { name: "JavaScript", icon: javascript, type: "language" },
     { name: "MySQL", icon: mysql, type: "database" },
@@ -51,18 +53,26 @@ export const Skills = () => {
     { name: "Bootstrap", type: "CSS Framework", icon: bootstrapIcon },
     { name: "Material UI", type: "React Component Library", icon: materialUIIcon },
     { name: "Chakra UI", type: "React Component Library", icon: chakraUIIcon },
-    {name: "Next JS", type: "framework", icon: next}
-    
+    {name: "Next JS", type: "framework", icon: next},
+    { name: "PyTorch", type: "Machine Learning Framework", icon: images.pytorchImage},
+    { name: "TensorFlow", type: "Machine Learning Framework", icon: images.tensorflowImage},
+    { name: "Jupyter Notebook", type: "Development Environment", icon: images.jupyterImage},
+    { name: "Pandas", type: "Data Analysis Library", icon: images.pandasImage},
+    { name: "NumPy", type: "Data Analysis Library", icon: images.numpyImage},  
   ];
 
-  const groupedSkills = {
-    framework: skills.filter(skill => skill.type === "framework"),
-    language: skills.filter(skill => skill.type === "language"),
-    database: skills.filter(skill => skill.type === "database"),
-    Library: skills.filter(skill => skill.type === 'React Component Library'),
-    Styling: skills.filter(skill => skill.type === 'Styling Language'),
-    cssFramework : skills.filter(skill => skill.type === 'CSS Framework')
-  };
+ 
+const groupedSkills = {
+  framework: skills.filter(skill => skill.type === "framework"),
+  language: skills.filter(skill => skill.type === "language"),
+  database: skills.filter(skill => skill.type === "database"),
+  Library: skills.filter(skill => skill.type === "React Component Library"),
+  Styling: skills.filter(skill => skill.type === "Styling Language"),
+  cssFramework: skills.filter(skill => skill.type === "CSS Framework"),
+  machineLearning: skills.filter(skill => skill.type === "Machine Learning Framework"),
+  devEnvironment: skills.filter(skill => skill.type === "Development Environment"),
+  dataAnalysis: skills.filter(skill => skill.type === "Data Analysis Library"),
+};
 
   const responsive = {
     superLargeDesktop: {
@@ -172,6 +182,9 @@ export const Skills = () => {
               )}
               {renderCarousel(groupedSkills.framework, "Frameworks")}
               {renderCarousel(groupedSkills.language, "Programming Languages")}
+              {renderCarousel(groupedSkills.dataAnalysis,"data Analysis")}
+              {renderCarousel(groupedSkills.devEnvironment,"development environement")}
+              {renderCarousel(groupedSkills.machineLearning,"machine learning")}
               {renderCarousel(groupedSkills.database, "Databases")}
               {renderCarousel(groupedSkills.Styling, "Styling languages")}
             </div>

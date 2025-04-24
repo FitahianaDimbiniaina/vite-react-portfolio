@@ -6,6 +6,7 @@ import projImg2 from "../assets/img/bt.png";
 import projImg3 from "../assets/img/portfolio.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import fakestore from "../assets/img/fakestore.png"
+import face_recognition from '../assets/img/face_recognitionImg.png'
 
 export const Projects = () => {
   const projects = [
@@ -15,6 +16,14 @@ export const Projects = () => {
         "Business Training is a mobile E-learning platform built with React Native, offering training modules, progress tracking, and interactive resources.",
       imgUrl: projImg2,
       url: ""
+    },
+    {
+      title : "face recognition system",
+      description :
+      "A real-time face recognition app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification"
+,
+      imgUrl : face_recognition,
+      url:""
     },
     {
       title: "Paper Trail",
@@ -35,6 +44,7 @@ export const Projects = () => {
       imgUrl: projImg3,
       url: "https://fitahiana-portfolio.netlify.app"
     },
+    
   ];
 
   return (
