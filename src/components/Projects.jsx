@@ -5,8 +5,9 @@ import projImg1 from "../assets/img/PaperTrail.png";
 import projImg2 from "../assets/img/bt.png";
 import projImg3 from "../assets/img/portfolio.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import fakestore from "../assets/img/fakestore.png"
-import face_recognition from '../assets/img/face_recognitionImg.png'
+import fakestore from "../assets/img/fakestore.png";
+import face_recognition from '../assets/img/face_recognitionImg.png';
+import "./Project.css";
 
 export const Projects = () => {
   const projects = [
@@ -18,12 +19,11 @@ export const Projects = () => {
       url: ""
     },
     {
-      title : "face recognition system",
-      description :
-      "A real-time face recognition app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification"
-,
-      imgUrl : face_recognition,
-      url:""
+      title: "Face Recognition System",
+      description:
+        "A real-time face recognition app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification",
+      imgUrl: face_recognition,
+      url: ""
     },
     {
       title: "Paper Trail",
@@ -33,8 +33,8 @@ export const Projects = () => {
       url: ""
     },
     {
-      title: "fakestore",
-      description:"An e-commerce app with a minimalistic user friendly UI following ios design asthetics",
+      title: "FakeStore",
+      description: "An e-commerce app with a minimalistic user-friendly UI following iOS design aesthetics.",
       imgUrl: fakestore,
       url: "https://myfakestore-ecommerce.netlify.app"
     },
@@ -44,15 +44,12 @@ export const Projects = () => {
       imgUrl: projImg3,
       url: "https://fitahiana-portfolio.netlify.app"
     },
-    
   ];
 
   return (
-    <section id="projects" style={{ padding: '50px 0', position: 'relative' }}>
-      <Container style={{ width: '100%', margin: '0 auto', padding: '0 20px' }}>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '50px', color: '#ffffff' }}>
-          Projects
-        </h2>
+    <section id="projects" className="projects-section">
+      <Container className="projects-container">
+        <h2 className="projects-heading">Projects</h2>
         {projects.map((project, index) => {
           const isEven = index % 2 === 0;
           return (
@@ -60,64 +57,42 @@ export const Projects = () => {
               key={index}
               initial={{ opacity: 0, x: isEven ? -100 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.3 }} 
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                width: '100%',
-                height: '400px',
-                marginBottom: '50px',
-                backgroundColor: '#121212',
-                flexDirection: isEven ? 'row' : 'row-reverse',
-              }}
+              className={`project-item ${isEven ? 'even' : 'odd'}`}
             >
-              <div style={{ width: '50%', height: '100%' }}>
-                <div style={{
-                  width: '100%',
-                  height: '100%',
-                  clipPath: isEven
-                    ? 'polygon(0 0, 100% 0, 90% 100%, 0 100%)'
-                    : 'polygon(0 0, 100% 0, 100% 100%, 10% 100%)'
-                }}>
-                  <img src={project.imgUrl} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="project-image-wrapper">
+                <img src={project.imgUrl} alt={project.title} className="project-image" />
+                <div className="project-description-mobile">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      View Project
+                    </a>
+                  )}
                 </div>
               </div>
               <motion.div
                 initial={{ opacity: 0, x: isEven ? -100 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the element is in view
+                viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                style={{
-                  width: '50%',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  padding: '20px',
-                  color: '#ffffff',
-                  textAlign: 'left',
-                }}
+                className="project-description-desktop"
               >
-                <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>{project.title}</h3>
-                <p style={{ fontSize: '1rem', lineHeight: '1.5', marginBottom: '1rem' }}>{project.description}</p>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      padding: '0.5rem 1rem',
-                      backgroundColor: 'transparent',
-                      color: '#ffffff',
-                      border: '2px solid #ffffff',
-                      borderRadius: '5px',
-                      textDecoration: 'none',
-                      display: 'inline-block',
-                      width: 'fit-content',
-                      transition: 'background-color 0.3s, color 0.3s',
-                    }}
+                    className="project-link"
                   >
                     View Project
                   </a>
@@ -127,7 +102,7 @@ export const Projects = () => {
           );
         })}
       </Container>
-      <img src={colorSharp2} alt="Background decoration" style={{ position: 'absolute', right: '0', bottom: '0', width: '300px', opacity: '0.5', zIndex: '-1' }} />
+      <img src={colorSharp2} alt="Background decoration" className="projects-bg" />
     </section>
   );
 };

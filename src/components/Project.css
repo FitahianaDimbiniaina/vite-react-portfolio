@@ -1,0 +1,159 @@
+/* Desktop styles (unchanged) */
+.projects-section {
+    padding: 50px 0;
+    position: relative;
+  }
+  
+  .projects-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .projects-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ffffff;
+  }
+  
+  .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 50px;
+    background-color: #121212;
+  }
+  
+  .project-item.even {
+    flex-direction: row;
+  }
+  
+  .project-item.odd {
+    flex-direction: row-reverse;
+  }
+  
+  .project-image-wrapper {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-item.even .project-image-wrapper {
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+  }
+  
+  .project-item.odd .project-image-wrapper {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .project-description-desktop {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .project-description-desktop h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .project-description-desktop p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .project-link {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    width: fit-content;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .project-link:hover {
+    background-color: #ffffff;
+    color: #121212;
+  }
+  
+  .projects-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  
+  /* Mobile styles (hover effect) */
+  @media (max-width: 768px) {
+    .project-item {
+      flex-direction: column !important;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  
+    .project-image-wrapper {
+      width: 100%;
+      height: 300px;
+      clip-path: none !important;
+    }
+  
+    .project-description-desktop {
+      display: none;
+    }
+  
+    .project-description-mobile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  
+    .project-image-wrapper:hover .project-description-mobile {
+      opacity: 1;
+    }
+  
+    .project-description-mobile h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  
+    .project-description-mobile p {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
