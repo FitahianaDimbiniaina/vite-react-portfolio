@@ -19,9 +19,9 @@ export const Projects = () => {
       url: ""
     },
     {
-      title: "Face Recognition System",
+      title: "Face Recognition Attendance System",
       description:
-        "A real-time face recognition app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification",
+        "A face recognition attendance app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification",
       imgUrl: face_recognition,
       url: ""
     },
