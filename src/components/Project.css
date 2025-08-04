@@ -85,7 +85,7 @@
     background-color: transparent;
     color: #ffffff;
     border: 2px solid #ffffff;
-    margin-top: 10px;
+    margin-top: 5px;
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
@@ -180,56 +180,4 @@
   width: 18px;
   height: 18px;
   filter: grayscale(100%);
-}
-
-.project-links {
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  
-}
-
-.project-link-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.github-logo {
-  width: 20px;
-  height: 20px;
-}
-
-
-
-.project-link:hover {
-  color: #b3bcbd;
-}
-
-
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 0.8rem;
-}
-
-
-
-.tech-logo {
-  width: 18px;
-  height: 18px;
-}
-
-.project-description-mobile .project-links,
-.project-description-desktop .project-links {
-  margin-top: 1rem;
-}
-
-.project-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
 }
