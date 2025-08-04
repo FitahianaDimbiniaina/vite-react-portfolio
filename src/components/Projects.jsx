@@ -68,7 +68,7 @@ export const Projects = () => {
     //   imgUrl: fakestore,
     //   url: "https://myfakestore-ecommerce.netlify.app",
     //  github: [],
-    //   technologies: [
+    //   technologies: [ 
     //     { name: "React", logo: "https://cdn.simpleicons.org/react" },
     //     { name: "Bootstrap", logo: "https://cdn.simpleicons.org/bootstrap" }
     //   ]
@@ -105,16 +105,21 @@ export const Projects = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="project-links">
-                    {project.github && project.github.map((link, i) => (
-                      <div className="project-link-item" key={i}>
-                        <img src={link.image} alt="GitHub" className="github-logo" />
-                        <a href={link.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                          View Code
-                        </a>
-                      </div>)
-                    )}
-                  </div>
+               <div className="project-links">
+              {project.github && project.github.map((link, i) => (
+                <div className="project-link-item" key={i}>              
+                  <a
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    View Code
+                  </a>
+                </div>
+              ))}
+            </div>
+
 
                   {project.url && (
                     <a
@@ -148,12 +153,17 @@ export const Projects = () => {
                 </div>
                 <div className="project-links">
                     {project.github && project.github.map((link, i) => (
-                      <div className="project-link-item" key={i}>              
-                        <div href={link.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                          View Code
-                        </div>
-                      </div>)
-                    )}
+                    <div className="project-link-item" key={i}>              
+                      <a
+                        href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                      >
+                        View Code
+                      </a>
+                    </div>
+                 ))}
                   </div>
 
                 {project.url && (
