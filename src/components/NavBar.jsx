@@ -74,7 +74,6 @@ export const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-              <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
             </Nav>
             <span className="navbar-text">
@@ -85,13 +84,14 @@ export const NavBar = () => {
                 >
                   <img src={navIcon1} alt="LinkedIn" />
                 </a>
+                <span style={{ margin: '0 4px' }}></span>
 
-                <a 
+                {/* <a 
                   href="https://www.facebook.com/fitahiana.razafi"
                   onClick={(e) => handleRedirect(e, "fb://profile/fitahiana.razafi", "https://www.facebook.com/fitahiana.razafi")}
                 >
                   <img src={navIcon2} alt="Facebook" />
-                </a>
+                </a> */}
 
                 <a 
                   href="https://github.com/FitahianaDimbiniaina"

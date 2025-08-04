@@ -3,47 +3,76 @@ import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
 import projImg1 from "../assets/img/PaperTrail.png";
 import projImg2 from "../assets/img/bt.png";
-import projImg3 from "../assets/img/portfolio.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import fakestore from "../assets/img/fakestore.png";
 import face_recognition from '../assets/img/face_recognitionImg.png';
 import "./Project.css";
+import { link, text } from 'framer-motion/client';
 
 export const Projects = () => {
   const projects = [
     {
       title: "Business Training",
       description:
-        "Business Training is a mobile E-learning platform built with React Native, offering training modules, progress tracking, and interactive resources.",
+        "A mobile E-learning platform offering training modules, progress tracking, and interactive resources.",
       imgUrl: projImg2,
-      url: ""
+      url: "",
+      github: [],
+      technologies: [
+        { name: "React Native", logo: "https://cdn.simpleicons.org/react" }
+      ]
     },
     {
       title: "Face Recognition Attendance System",
       description:
-        "A face recognition attendance app using PyTorch, MTCNN, and custom FaceNet-based embeddings for identity verification",
+        "An attendance app that uses facial recognition to verify identities and track presence.",
       imgUrl: face_recognition,
-      url: ""
+      url: "",
+      github:[],
+      technologies: [
+        { name: "Python", logo: "https://cdn.simpleicons.org/python" },
+        { name: "PyTorch", logo: "https://cdn.simpleicons.org/pytorch" },
+        { name: "MTCNN", logo: "https://cdn.simpleicons.org/python" } 
+      ]
     },
     {
       title: "Paper Trail",
       description:
-        "PaperTrail is an intuitive letter management app built with React, Node.js, and MySQL, enabling users to organize, store, and quickly retrieve letters for efficient correspondence management.",
+        "An intuitive letter management app that helps users organize, store, and quickly retrieve letters for efficient correspondence.",
       imgUrl: projImg1,
-      url: ""
+      url: "",
+      github:[],
+      technologies: [
+        { name: "React", logo: "https://cdn.simpleicons.org/react" },
+        { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs" },
+        { name: "MySQL", logo: "https://cdn.simpleicons.org/mysql" }
+      ]
     },
+    {
+      title: "supermarket ETL",
+      description:"A supermarket ETL pipeline that extracts data from a CSV file, transforms it, and loads it into a postgre database for analysis.",
+      imgUrl: "https://cdn.simpleicons.org/postgresql",
+      url: "",
+      github: [{link: "https://github.com/FitahianaDimbiniaina/Supermarket_ETL",
+          image: "https://cdn.simpleicons.org/github"}]
+  ,
+      technologies: [
+        { name: "Python", logo: "https://cdn.simpleicons.org/python" },
+        { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql" }
+      ]
+    },  
     {
       title: "FakeStore",
-      description: "An e-commerce app with a minimalistic user-friendly UI following iOS design aesthetics.",
+      description:
+        "An e-commerce app with a minimalistic and user-friendly UI inspired by iOS design aesthetics.",
       imgUrl: fakestore,
-      url: "https://myfakestore-ecommerce.netlify.app"
-    },
-    {
-      title: "Fitahiana",
-      description: "Another portfolio of mine built with React.js",
-      imgUrl: projImg3,
-      url: "https://fitahiana-portfolio.netlify.app"
-    },
+      url: "https://myfakestore-ecommerce.netlify.app",
+     github: [],
+      technologies: [
+        { name: "React", logo: "https://cdn.simpleicons.org/react" },
+        { name: "Bootstrap", logo: "https://cdn.simpleicons.org/bootstrap" }
+      ]
+    }
   ];
 
   return (
@@ -66,6 +95,27 @@ export const Projects = () => {
                 <div className="project-description-mobile">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
+
+                  {/* Technologies */}
+                  <div className="tech-stack">
+                    {project.technologies.map((tech, i) => (
+                      <div className="tech-item" key={i}>
+                        <img src={tech.logo} alt={tech.name} className="tech-logo" />
+                        <span>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="project-links">
+                    {project.github && project.github.map((link, i) => (
+                      <div className="project-link-item" key={i}>
+                        <img src={link.image} alt="GitHub" className="github-logo" />
+                        <a href={link.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                          View Code
+                        </a>
+                      </div>)
+                    )}
+                  </div>
+
                   {project.url && (
                     <a
                       href={project.url}
@@ -78,6 +128,7 @@ export const Projects = () => {
                   )}
                 </div>
               </div>
+
               <motion.div
                 initial={{ opacity: 0, x: isEven ? -100 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -87,6 +138,24 @@ export const Projects = () => {
               >
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                <div className="tech-stack">
+                  {project.technologies.map((tech, i) => (
+                    <div className="tech-item" key={i}>
+                      <img src={tech.logo} alt={tech.name} className="tech-logo" />
+                      <span>{tech.name}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="project-links">
+                    {project.github && project.github.map((link, i) => (
+                      <div className="project-link-item" key={i}>              
+                        <div href={link.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                          View Code
+                        </div>
+                      </div>)
+                    )}
+                  </div>
+
                 {project.url && (
                   <a
                     href={project.url}
