@@ -61,18 +61,18 @@ export const Projects = () => {
         { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql" }
       ]
     },  
-    {
-      title: "FakeStore",
-      description:
-        "An e-commerce app with a minimalistic and user-friendly UI inspired by iOS design aesthetics.",
-      imgUrl: fakestore,
-      url: "https://myfakestore-ecommerce.netlify.app",
-     github: [],
-      technologies: [
-        { name: "React", logo: "https://cdn.simpleicons.org/react" },
-        { name: "Bootstrap", logo: "https://cdn.simpleicons.org/bootstrap" }
-      ]
-    }
+    // {
+    //   title: "FakeStore",
+    //   description:
+    //     "An e-commerce app with a minimalistic and user-friendly UI inspired by iOS design aesthetics.",
+    //   imgUrl: fakestore,
+    //   url: "https://myfakestore-ecommerce.netlify.app",
+    //  github: [],
+    //   technologies: [
+    //     { name: "React", logo: "https://cdn.simpleicons.org/react" },
+    //     { name: "Bootstrap", logo: "https://cdn.simpleicons.org/bootstrap" }
+    //   ]
+    // }
   ];
 
   return (
