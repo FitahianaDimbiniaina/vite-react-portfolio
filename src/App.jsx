@@ -8,7 +8,7 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import Service from './components/Services';
-import Techexp from './components/Techexp';
+import Techexp from './components/TecheXP';
 
 function App() {
   return (
