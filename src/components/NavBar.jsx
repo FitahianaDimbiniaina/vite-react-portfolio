@@ -8,6 +8,7 @@ import { HashLink } from 'react-router-hash-link';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
+import CvButtons from './CvButton.jsx';
 
 export const NavBar = () => {
 
@@ -76,6 +77,7 @@ export const NavBar = () => {
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
             </Nav>
+            <CvButtons />
             <span className="navbar-text">
             <div className="social-icon">
                 <a 
@@ -99,8 +101,10 @@ export const NavBar = () => {
                 >
                   <img src={navIcon3} alt="GitHub" />
                 </a>
-              </div>
+         
 
+              </div>
+                
 
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let’s Connect</span></button>
