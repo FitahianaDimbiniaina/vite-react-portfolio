@@ -1,0 +1,51 @@
+.techexp-wrapper {
+  width: 100%;
+  padding: 40px 16px 0; 
+  margin-bottom: 15px;
+  margin-top: 3rem;
+  background-color: transparent; 
+  box-sizing: border-box;
+  
+}
+
+.techexp-card {
+  max-width: 900px;
+  margin: 0 auto 1.25rem; 
+  background-color:  rgba(0, 0, 0, 0.1); 
+  /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); */
+  border-radius: 16px;
+  padding: 20px 32px;
+  margin-bottom: 5%;
+  color: #d1d5db; 
+}
+
+.techexp-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.techexp-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.techexp-icon {
+  color: #7d0c45;
+  min-width: 48px;
+}
+
+.techexp-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #7d0c45;;
+}
+
+.techexp-text {
+  color: #9ca3af; 
+  line-height: 1.6;
+}
