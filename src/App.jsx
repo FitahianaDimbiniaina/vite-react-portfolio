@@ -8,16 +8,19 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import Service from './components/Services';
+import TecheXP  from './components/TecheXP';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App aling-items-center justify-content-center">
       <NavBar />
       <Banner />
       {/* <Skills /> */}
       <Projects />
+       <TecheXP />
       <Contact />
       <Footer />
+     
     </div>
   );
 }

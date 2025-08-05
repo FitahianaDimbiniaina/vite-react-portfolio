@@ -8,6 +8,7 @@ import fakestore from "../assets/img/fakestore.png";
 import face_recognition from '../assets/img/face_recognitionImg.png';
 import "./Project.css";
 import { link, text } from 'framer-motion/client';
+import { Link } from 'react-router-dom';
 
 export const Projects = () => {
   const projects = [
@@ -28,7 +29,7 @@ export const Projects = () => {
         "An attendance app that uses facial recognition to verify identities and track presence.",
       imgUrl: face_recognition,
       url: "",
-      github:[],
+      github:[{link:"https://github.com/FitahianaDimbiniaina/face_recognition.git"}],
       technologies: [
         { name: "Python", logo: "https://cdn.simpleicons.org/python" },
         { name: "PyTorch", logo: "https://cdn.simpleicons.org/pytorch" },
@@ -158,7 +159,7 @@ export const Projects = () => {
                         href={link.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="project-link"
+                        className="project-link mt-3"
                       >
                         View Code
                       </a>
