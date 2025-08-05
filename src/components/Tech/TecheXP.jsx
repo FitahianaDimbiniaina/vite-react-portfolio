@@ -1,6 +1,6 @@
 import React from "react";
 import { FaDocker } from "react-icons/fa";
-import './TechXP.css';
+import './TechXp.css';
 
 const Techexp = () => {
   return (
