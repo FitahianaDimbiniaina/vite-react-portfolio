@@ -1,0 +1,15 @@
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.wiggle-hover {
+  display: inline-block; 
+  text-decoration: none; 
+  transition: text-decoration 0.3s ease;
+}
+
+.wiggle-hover:hover {
+  animation: wiggle 0.3s ease-in-out infinite;
+  text-decoration: none; 
+}
