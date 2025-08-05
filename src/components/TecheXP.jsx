@@ -1,7 +1,8 @@
 import React from "react";
 import { FaDocker } from "react-icons/fa";
 import './TechXP.css';
-const TecheXP = () => {
+
+const Techexp = () => {
   return (
     <div className="techexp-wrapper">
       <div className="techexp-card">
@@ -21,4 +22,4 @@ const TecheXP = () => {
   );
 };
 
-export default TecheXP;
+export default Techexp;
